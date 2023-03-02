@@ -1,12 +1,13 @@
-const update = document.querySelector('#update-button')
+let update = document.getElementById("update-button");
 
-update.addEventListener('click', _ => {
-  fetch('/quotes', {
-    method: 'put',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      name: 'Darth Vader',
-      quote: 'I find your lack of faith disturbing.'
-    })
-  })
-});
+function call(){
+ console.log("Hello");
+ fetch("/quotes", {
+   method: "put",
+   headers: { "Content-Type": "application/json" },
+   body: JSON.stringify({
+     name: "Darth Vader",
+     quote: "I find your lack of faith disturbing.",
+   }),
+ });
+};

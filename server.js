@@ -17,21 +17,21 @@ client.connect()
     console.log("Connected to Database");
     const db = client.db("raja");
     const quotesCollection = db.collection("quotes");
-    // app.post('/quotes', (req, res) => {
-    //   quotesCollection.insertOne(req.body)
-    //     .then(result => {
-    //       console.log(result)
-    //     })
-    //     .catch(error => console.error(error))
-    // })
-    // app.get('/', (req, res) => {
-    //   db.collection('quotes').find().toArray()
-    //     .then(results => {
-    //       res.render('index.ejs', { quotes: results })
-    //     })
-    //     .catch(/* ... */)
+    app.post('/quotes', (req, res) => {
+      quotesCollection.insertOne(req.body)
+        .then(result => {
+          console.log(result)
+        })
+        .catch(error => console.error(error))
+    })
+    app.get('/', (req, res) => {
+      db.collection('quotes').find().toArray()
+        .then(results => {
+          res.render('index.ejs', { quotes: results })
+        })
+        .catch(/* ... */)
        
-    // });
+    });
     app.put('/quotes', (req, res) => {
       console.log(req.body)
       console.log("Hello This Is My Group")
